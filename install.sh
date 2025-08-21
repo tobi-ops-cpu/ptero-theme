@@ -6,6 +6,20 @@ PTERO_PATH="/var/www/pterodactyl"
 THEME_REPO="https://github.com/tobi-ops-cpu/ptero-theme/archive/main.tar.gz"
 THEME_DIR="ptero-theme-main"
 
+# Try normal install first
+echo "📦 Installing dependencies..."
+npm install --silent
+
+# If it fails, retry with legacy peer deps
+if [ $? -ne 0 ]; then
+    echo "🔄 Retry with legacy peer deps..."
+    npm install --legacy-peer-deps --silent
+fi
+
+# Build assets
+echo "⚙️ Building assets..."
+npm run build:production
+
 # Create backup directory with timestamp
 BACKUP_DIR="$PTERO_PATH/theme-backups/$(date +%F-%H-%M-%S)"
 echo "🔹 Installing Pterodactyl Dark Nexus Theme..."
