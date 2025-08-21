@@ -16,6 +16,14 @@ if [ $? -ne 0 ]; then
     npm install --legacy-peer-deps --silent
 fi
 
+if node --version | grep -q "v18"; then
+    echo "❌ Node.js v18 not supported. Installing Node.js v16..."
+    sudo apt remove nodejs npm
+    curl -fsSL https://deb.nodesource.com/setup_16.x | sudo -E bash -
+    sudo apt update
+    sudo apt install -y nodejs
+fi
+
 # Build assets
 echo "⚙️ Building assets..."
 npm run build:production
