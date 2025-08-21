@@ -1,0 +1,95 @@
+/* resources/css/theme.css */
+
+/* ==========================
+   Custom Theme Variables
+   ========================== */
+:root {
+  --dark-bg: #0a1128;
+  --card-bg: #121836;
+  --text-primary: #e0e0e0;
+  --text-secondary: #7a7a7a; /* Slightly dimmer than before */
+  --accent-blue: #00d1ff;
+  --accent-hover: #00bfff;
+  --border-color: #2a345c;
+  --shadow-dark: rgba(0, 0, 0, 0.4);
+}
+
+/* ==========================
+   Tailwind Overrides
+   ========================== */
+.bg-dark {
+  background-color: var(--dark-bg) !important;
+}
+
+.bg-card {
+  background-color: var(--card-bg) !important;
+}
+
+.text-accent {
+  color: var(--accent-blue) !important;
+}
+
+.hover\:text-accent:hover {
+  color: var(--accent-hover) !important;
+}
+
+.border-gray {
+  border-color: var(--border-color) !important;
+}
+
+.shadow-lg {
+  box-shadow: 0 10px 20px var(--shadow-dark) !important;
+}
+
+.rounded-xl {
+  border-radius: 1rem !important;
+}
+
+.transition-all {
+  transition: all 0.2s ease-in-out;
+}
+
+/* ==========================
+   Neon Glow Effects
+   ========================== */
+.glow {
+  text-shadow: 0 0 10px rgba(0, 209, 255, 0.5);
+}
+
+/* ==========================
+   Sidebar Styles
+   ========================== */
+.sidebar-active {
+  color: var(--accent-blue) !important;
+  font-weight: 600;
+  border-left: 3px solid var(--accent-blue);
+  background: rgba(0, 209, 255, 0.05);
+}
+
+/* ==========================
+   Hover & Animation Helpers
+   ========================== */
+.hover-scale:hover {
+  transform: scale(1.05);
+}
+
+.card-hover:hover {
+  box-shadow: 0 0 20px rgba(0, 209, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+/* ==========================
+   Dark Scrollbars
+   ========================== */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--accent-blue);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--dark-bg);
+}
